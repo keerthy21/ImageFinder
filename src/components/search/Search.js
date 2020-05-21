@@ -1,9 +1,10 @@
-import React from 'react'
+import React , {useState}from 'react'
+
 import { TextField , SelectField , MenuItem} from 'material-ui';
 
 const Search = () => {
-    const [state, setstate] = useState();
-   state ={
+     let [state, setstate] = useState();
+   state={
        searchText:'',
        amount:15,
        apiUrl:'https://pixabay.com/api',
@@ -34,7 +35,7 @@ const Search = () => {
           </SelectField>
           <br/>
         </div>
-    )
+    );
 }
 
 export default Search
