@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 import {TextField, SelectField, MenuItem} from 'material-ui';
 
+
 const Search = () => {
     const [state, setstate] = useState(
         {
@@ -12,20 +13,29 @@ const Search = () => {
             images: []
         }
     );
+
+    const onTextChange = ()=>{
+
+    };
+
+    const onAmountChange = ()=>{
+
+    }
+
     return (
         <div>
             <TextField
                 name="SearchText"
-                value={this.state.searchText}
-                onChange={this.onTextChange}
+                value={state.searchText}
+                onChange={onTextChange}
                 floatingLabelText="Search For Images"
                 fullWidth={true}
             />
             <br/>
             <SelectField
                 name="amount"
-                value={this.state.amount}
-                onChange={this.onAmountChange}
+                value={state.amount}
+                onChange={onAmountChange}
                 floatingLabelText="Amount"
             >
                 <MenuItem value={5} primaryText="5"/>
