@@ -10,6 +10,7 @@ const Search = () => {
        apiKey:'16671798-01f55fad2301ad3f652388cef',
        images:[]
    }
+   setstate(state);
     return (
         <div>
           <TextField

@@ -9,7 +9,7 @@ function App() {
     <MuiThemeProvider>
       <div>
       <NavBar />
-     <Search />
+      <Search />
       </div>
     </MuiThemeProvider>
   );
