@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
 import {TextField, SelectField, MenuItem} from 'material-ui';
 import axios from 'axios';
 
@@ -19,10 +19,10 @@ const Search = () => {
 
     console.log(images)
     const onTextChange = e => {
-        setSearchText( e.target.value );
+        setSearchText(e.target.value);
     };
 
-    const onAmountChange = (e) => {
+    const onAmountChange = e => {
         setAmount(e.target.value)
     };
 
