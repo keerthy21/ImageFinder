@@ -27,10 +27,10 @@ const Search = () => {
         axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
             .then(res => setImages(res.data.hits))
             .catch(err => console.log(err));
-        console.log(images)
+
 
     };
-
+    console.log(images)
 
     return (
         <div>
