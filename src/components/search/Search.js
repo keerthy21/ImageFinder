@@ -17,7 +17,7 @@ const Search = () => {
 
     useEffect(() => {
         onTextChange();
-    }, []);
+    }, [data.searchText]);
 
     console.log(data.images)
     const onTextChange = e => {
