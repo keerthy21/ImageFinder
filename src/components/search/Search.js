@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 const Search = () => {
+
     const [state, setState] = useState(
         {
             searchText: '',
@@ -13,10 +14,13 @@ const Search = () => {
             images: []
         }
     );
-
+    console.log(state.images)
     const onTextChange = (e)=>{
       setState({[e.target.name]: e.target.value} ,()=>{
-          axios.get(`${state.apiUrl}/?key=${state.apiKey}&q=${}`)
+          axios.get(`${state.apiUrl}/?key=${state.apiKey}&q=${state.searchText}&image_type=photo&per_page=${state.amount}&safesearch=true`)
+              .then(res =>setState({images:res.data.hits}))
+              .catch(err => console.log(err));
+
       });
     };
 
