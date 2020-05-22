@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Search = () => {
 
-    const [state, setState] = useState(
+    const [data, setData] = useState(
         {
             searchText: '',
             amount: 15,
@@ -19,11 +19,11 @@ const Search = () => {
         onTextChange()
     },[]);
 
-    console.log(state.images)
-     const onTextChange = (e)=>{
-      setState({[e.target.name]: e.target.value} ,()=>{
-          axios.get(`${state.apiUrl}/?key=${state.apiKey}&q=${state.searchText}&image_type=photo&per_page=${state.amount}&safesearch=true`)
-              .then(res =>setState({images:res.data.hits}))
+    console.log(data.images)
+     const onTextChange = e=>{
+      setData({[e.target.name]: e.target.value} ,()=>{
+          axios.get(`${data.apiUrl}/?key=${data.apiKey}&q=${data.searchText}&image_type=photo&per_page=${data.amount}&safesearch=true`)
+              .then(res =>setData({images:res.data.hits}))
               .catch(err => console.log(err));
 
       });
@@ -37,7 +37,7 @@ const Search = () => {
         <div>
             <TextField
                 name="SearchText"
-                value={state.searchText}
+                value={data.searchText}
                 onChange={onTextChange}
                 floatingLabelText="Search For Images"
                 fullWidth={true}
@@ -45,7 +45,7 @@ const Search = () => {
             <br/>
             <SelectField
                 name="amount"
-                value={state.amount}
+                value={data.amount}
                 onChange={onAmountChange}
                 floatingLabelText="Amount"
             >
