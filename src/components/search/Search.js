@@ -6,12 +6,12 @@ import axios from 'axios';
 const Search = () => {
 
     const [images, setImages] = useState([]);
-    const [searchText,setSearchText]=useState('');
-    const [amount,setAmount]=useState(15);
+    const [searchText, setSearchText] = useState('');
+    const [amount, setAmount] = useState(15);
 
     useEffect(() => {
         apiCall();
-    }, [searchText,amount]);
+    }, [searchText, amount]);
 
     const onTextChange = e => {
         setSearchText(e.target.value);
@@ -21,9 +21,9 @@ const Search = () => {
         setAmount(e.target.value);
     };
 
-    const apiCall=  () => {
-        const apiUrl= 'https://pixabay.com/api'
-        const  apiKey ='16671798-01f55fad2301ad3f652388cef'
+    const apiCall = () => {
+        const apiUrl = 'https://pixabay.com/api'
+        const apiKey = '16671798-01f55fad2301ad3f652388cef'
         axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
             .then(res => setImages(res.data.hits))
             .catch(err => console.log(err));
