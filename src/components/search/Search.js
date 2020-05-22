@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-
 import {TextField, SelectField, MenuItem} from 'material-ui';
+import axios from 'axios';
 
 
 const Search = () => {
-    const [state, setstate] = useState(
+    const [state, setState] = useState(
         {
             searchText: '',
             amount: 15,
@@ -14,8 +14,10 @@ const Search = () => {
         }
     );
 
-    const onTextChange = ()=>{
-
+    const onTextChange = (e)=>{
+      setState({[e.target.name]: e.target.value} ,()=>{
+          axios.get(`${state.apiUrl}/?key=${state.apiKey}&q=${}`)
+      });
     };
 
     const onAmountChange = ()=>{
