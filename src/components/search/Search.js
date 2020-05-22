@@ -13,9 +13,8 @@ const Search = () => {
 
 
     useEffect(() => {
-        onTextChange();
         apiCall();
-    }, [searchText]);
+    }, [searchText,amount]);
 
     console.log(images)
     const onTextChange = e => {
