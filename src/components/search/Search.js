@@ -16,13 +16,13 @@ const Search = () => {
         apiCall();
     }, [searchText,amount]);
 
-    console.log(images)
+
     const onTextChange = e => {
         setSearchText(e.target.value);
     };
 
     const onAmountChange = e => {
-        setAmount(e.target.value)
+        setAmount(e.target.value);
     };
 
     const apiCall=  () => {
@@ -31,6 +31,7 @@ const Search = () => {
         axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
             .then(res => setImages(res.data.hits))
             .catch(err => console.log(err));
+        console.log(images)
 
     };
 
