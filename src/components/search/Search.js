@@ -9,13 +9,9 @@ const Search = () => {
     const [searchText,setSearchText]=useState('');
     const [amount,setAmount]=useState(15);
 
-
-
-
     useEffect(() => {
         apiCall();
     }, [searchText,amount]);
-
 
     const onTextChange = e => {
         setSearchText(e.target.value);
@@ -34,7 +30,6 @@ const Search = () => {
         console.log(images)
 
     };
-
 
 
     return (
