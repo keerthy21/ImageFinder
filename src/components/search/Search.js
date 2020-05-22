@@ -14,23 +14,28 @@ const Search = () => {
 
     useEffect(() => {
         onTextChange();
+        apiCall()
     }, [searchText]);
 
     console.log(images)
     const onTextChange = e => {
-        const apiUrl= 'https://pixabay.com/api'
-        const  apiKey ='16671798-01f55fad2301ad3f652388cef'
-        setSearchText( e.target.value, () => {
-            axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
-                .then(res => setImages(res.data.hits))
-                .catch(err => console.log(err));
-
-        });
+        setSearchText( e.target.value );
     };
 
     const onAmountChange = (e) => {
-setAmount(e.target.value)
+        setAmount(e.target.value)
     };
+
+    const apiCall=  () => {
+        const apiUrl= 'https://pixabay.com/api'
+        const  apiKey ='16671798-01f55fad2301ad3f652388cef'
+        axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
+            .then(res => setImages(res.data.hits))
+            .catch(err => console.log(err));
+
+    };
+
+
 
     return (
         <div>
