@@ -5,39 +5,38 @@ import axios from 'axios';
 
 const Search = () => {
 
-    const [data, setData] = useState(
-        {
-            searchText: '',
-            amount: 15,
-            apiUrl: 'https://pixabay.com/api',
-            apiKey: '16671798-01f55fad2301ad3f652388cef',
-            images: []
-        }
-    );
+    const [images, setImages] = useState([]);
+    const [searchText,setSearchText]=useState('');
+    const [amount,setAmount]=useState(15);
+
+
+
 
     useEffect(() => {
         onTextChange();
-    }, [data.searchText]);
+    }, [searchText]);
 
-    console.log(data.images)
+    console.log(images)
     const onTextChange = e => {
-        setData({[e.target.name]: e.target.value}, () => {
-            axios.get(`${data.apiUrl}/?key=${data.apiKey}&q=${data.searchText}&image_type=photo&per_page=${data.amount}&safesearch=true`)
-                .then(res => setData({images: res.data.hits}))
+        const apiUrl= 'https://pixabay.com/api'
+        const  apiKey ='16671798-01f55fad2301ad3f652388cef'
+        setSearchText( e.target.value, () => {
+            axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
+                .then(res => setImages(res.data.hits))
                 .catch(err => console.log(err));
 
         });
     };
 
-    const onAmountChange = () => {
-
+    const onAmountChange = (e) => {
+setAmount(e.target.value)
     };
 
     return (
         <div>
             <TextField
                 name="SearchText"
-                value={data.searchText}
+                value={searchText}
                 onChange={onTextChange}
                 floatingLabelText="Search For Images"
                 fullWidth={true}
@@ -45,7 +44,7 @@ const Search = () => {
             <br/>
             <SelectField
                 name="amount"
-                value={data.amount}
+                value={amount}
                 onChange={onAmountChange}
                 floatingLabelText="Amount"
             >
