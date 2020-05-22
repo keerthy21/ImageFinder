@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {TextField, SelectField, MenuItem} from 'material-ui';
 import axios from 'axios';
 
@@ -14,8 +14,13 @@ const Search = () => {
             images: []
         }
     );
+
+    useEffect(()=>{
+        onTextChange()
+    },[]);
+
     console.log(state.images)
-    const onTextChange = (e)=>{
+     const onTextChange = (e)=>{
       setState({[e.target.name]: e.target.value} ,()=>{
           axios.get(`${state.apiUrl}/?key=${state.apiKey}&q=${state.searchText}&image_type=photo&per_page=${state.amount}&safesearch=true`)
               .then(res =>setState({images:res.data.hits}))
