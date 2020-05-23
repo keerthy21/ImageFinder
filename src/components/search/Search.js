@@ -12,26 +12,25 @@ class Search extends Component {
         images: []
     }
 
+    onTextChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
 
+    // axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
+    //         .then(res => setImages(res.data.hits))
+    //         .catch(err => console.log(err));
+    //     console.log(images)
 
-    const
-    apiCall = () => {
-
-        axios.get(`${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`)
-            .then(res => setImages(res.data.hits))
-            .catch(err => console.log(err));
-        console.log(images)
-
-    };
+ 
 
 render() {
     return(
         <div>
             <TextField
                 name="SearchText"
+                floatingLabelText="Search For Images"
                 value={this.state.searchText}
                 onChange={this.onTextChange}
-                floatingLabelText="Search For Images"
                 fullWidth={true}
             />
             <br/>
