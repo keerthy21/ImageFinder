@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {GridList, GridTile, IconButton, ZoomIn, Dialog, FlatButton} from "material-ui";
+import {GridList, GridTile, IconButton, Dialog, FlatButton} from "material-ui";
+import  ZoomIn from 'material-ui/svg-icons/action/zoom-in'
 
 
 class ImageResult extends Component {
@@ -9,7 +10,7 @@ class ImageResult extends Component {
         const {images} = this.props;
 
         if (images) {
-            imageListContent = {
+            imageListContent = (
             <GridList cols={3}>
                 {images.map(img => (
                     <GridTile
@@ -20,18 +21,19 @@ class ImageResult extends Component {
                             <ZoomIn color="white"/>
                         </IconButton>}
                     >
-
+                        <img src={img.largeImageURL} alt=""/>
                     </GridTile>
                 ))}
             </GridList>
-        }
+            )
         } else {
             imageListContent = null;
         }
 
+
         return (
             <div>
-
+                {imageListContent}
             </div>
         );
     }
