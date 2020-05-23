@@ -11,11 +11,7 @@ const Search = () => {
 
     useEffect(() => {
         apiCall();
-    }, [searchText]);
-
-    useEffect(() => {
-        apiCall();
-    }, [amount]);
+    }, [searchText,amount]);
 
     const onTextChange = e => {
         setSearchText(e.target.value);
