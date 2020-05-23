@@ -49,6 +49,9 @@ class Search extends Component {
                     <MenuItem value={5} primaryText="5"/>
                     <MenuItem value={10} primaryText="10"/>
                     <MenuItem value={15} primaryText="15"/>
+                    <MenuItem value={20} primaryText="20"/>
+                    <MenuItem value={30} primaryText="30"/>
+                    <MenuItem value={50} primaryText="50"/>
 
                 </SelectField>
                 <br/>
