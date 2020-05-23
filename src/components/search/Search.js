@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {TextField, SelectField, MenuItem} from 'material-ui';
 import axios from 'axios';
 import ImageResult from "../image-result/ImageResult";
+
 class Search extends Component {
     state = {
         searchText: '',
@@ -11,16 +12,16 @@ class Search extends Component {
         images: []
     };
 
-    onTextChange = (e,value) => {
-        this.setState({ searchText:value}, () => {
+    onTextChange = (e, value) => {
+        this.setState({searchText: value}, () => {
             axios.get(`${this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.searchText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`)
                 .then(res => this.setState({images: res.data.hits}))
                 .catch(err => console.log(err));
         });
     };
 
-    onAmountChange = (e,index,value) => {
-        this.setState({amount:value});
+    onAmountChange = (e, index, value) => {
+        this.setState({amount: value});
     }
 
     render() {
@@ -47,6 +48,7 @@ class Search extends Component {
 
                 </SelectField>
                 <br/>
+                {this.state.images.length > 0 ? (<ImageResult images={this.state.images}/>) : null}
             </div>
         );
     }

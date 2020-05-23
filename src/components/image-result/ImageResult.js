@@ -1,9 +1,13 @@
-import React from "react";
+import React, {Component} from 'react';
 
-const ImageResult = () => {
-  return <div>
-      
-  </div>;
-};
+class ImageResult extends Component {
+    render() {
+        return (
+            <div>
+              
+            </div>
+        );
+    }
+}
 
 export default ImageResult;
