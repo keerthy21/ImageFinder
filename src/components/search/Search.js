@@ -11,16 +11,16 @@ class Search extends Component {
         images: []
     };
 
-    onTextChange = e => {
-        this.setState({[e.target.name]: e.target.value}, () => {
+    onTextChange = (e,value) => {
+        this.setState({ searchText:value}, () => {
             axios.get(`${this.state.apiUrl}/?key=${this.state.apiKey}&q=${this.state.searchText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`)
                 .then(res => this.setState({images: res.data.hits}))
                 .catch(err => console.log(err));
         });
     };
 
-    onAmountChange = e => {
-        this.setState({[e.target.name]:e.target.value})
+    onAmountChange = (e,index,value) => {
+        this.setState({amount:value});
     }
 
     render() {
