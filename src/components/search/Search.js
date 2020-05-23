@@ -10,8 +10,12 @@ const Search = () => {
     const [amount, setAmount] = useState(15);
 
     useEffect(() => {
-        apiCall();
-    }, [searchText,amount]);
+       onTextChange()
+    }, [searchText]);
+
+    useEffect(() => {
+      onAmountChange()
+    }, [amount]);
 
     const onTextChange = e => {
         setSearchText(e.target.value);
