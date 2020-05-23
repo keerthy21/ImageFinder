@@ -12,15 +12,7 @@ class Search extends Component {
         images: []
     }
 
-    const
-    onTextChange = e => {
-        setSearchText(e.target.value);
-    };
 
-    const
-    onAmountChange = e => {
-        setAmount(e.target.value);
-    };
 
     const
     apiCall = () => {
@@ -32,33 +24,32 @@ class Search extends Component {
 
     };
 
-
+render() {
     return(
+        <div>
+            <TextField
+                name="SearchText"
+                value={this.state.searchText}
+                onChange={this.onTextChange}
+                floatingLabelText="Search For Images"
+                fullWidth={true}
+            />
+            <br/>
+            <SelectField
+                name="amount"
+                floatingLabelText="Amount"
+                value={this.state.amount}
+                onChange={this.onAmountChange}
+            >
+                <MenuItem value={5} primaryText="5"/>
+                <MenuItem value={10} primaryText="10"/>
+                <MenuItem value={15} primaryText="15"/>
 
-<div>
-<TextField
-name="SearchText"
-value={searchText}
-onChange={onTextChange}
-floatingLabelText="Search For Images"
-fullWidth={true}
-/>
-<br/>
-<SelectField
-name="amount"
-value={amount}
-onChange={onAmountChange}
-floatingLabelText="Amount"
->
-<MenuItem value={5} primaryText="5"/>
-<MenuItem value={10} primaryText="10"/>
-<MenuItem value={15} primaryText="15"/>
-
-</SelectField>
-<br/>
-</div>
-)
-    ;
+            </SelectField>
+            <br/>
+        </div>
+    );
+}
 }
 
 export default Search
