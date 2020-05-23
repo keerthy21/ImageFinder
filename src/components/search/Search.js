@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {TextField, SelectField, MenuItem} from 'material-ui';
 import axios from 'axios';
 
-
 class Search extends Component {
     state = {
         searchText: '',
@@ -58,4 +57,4 @@ render() {
 }
 }
 
-export default Search
+export default Search;
