@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {TextField, SelectField, MenuItem} from 'material-ui';
 import axios from 'axios';
-
+import ImageResult from "../image-result/ImageResult";
 class Search extends Component {
     state = {
         searchText: '',
